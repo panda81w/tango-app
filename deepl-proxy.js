@@ -35,4 +35,4 @@ app.post('/translate', async (req, res) => {
 const PORT = 3001;
 app.listen(PORT, () => {
     console.log(`DeepL proxy server running on port ${PORT}`);
-});
+}); 
