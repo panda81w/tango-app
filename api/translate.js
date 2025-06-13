@@ -10,19 +10,12 @@ export default async function handler(req, res) {
         return;
     }
 
-    // ここから通常のAPIロジック
-    // ... DeepL APIにリクエスト処理 ...
-}
-
-export default async function handler(req, res) {
     if (req.method !== 'POST') {
         res.status(405).json({ error: 'Method Not Allowed' });
         return;
     }
 
     const { text, target_lang } = req.body;
-
-    // DeepL APIキー（環境変数に設定してください！）
     const apiKey = process.env.DEEPL_API_KEY;
 
     if (!apiKey) {
@@ -31,7 +24,6 @@ export default async function handler(req, res) {
     }
 
     try {
-        // DeepL APIにリクエスト
         const response = await fetch('https://api-free.deepl.com/v2/translate', {
             method: 'POST',
             headers: {
